@@ -1,7 +1,4 @@
-console.log('Task 2:');
-document.getElementById('main').appendChild(getTask2());
-
-function getTask2() {
+(() => {
     const jsonString =
         `{
     "list": [
@@ -22,6 +19,7 @@ function getTask2() {
     output.setAttribute('id', 'task2');
     output.innerHTML = '<h3>task 2</h3>';
     output.innerHTML += '<p>' + JSON.stringify(jsObject, null, 4); + '</p>';
+    console.log('Task 2:');
     console.log(jsObject);
-    return output;
-}
+    document.getElementById('main').appendChild(output);
+})();
