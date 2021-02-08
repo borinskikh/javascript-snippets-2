@@ -13,3 +13,8 @@
 .btn:hover {
     background-color: slategrey;
 }
+
+#task3-cards {
+    padding: 30px 30px 20px 30px;
+    height: 350px;
+}
