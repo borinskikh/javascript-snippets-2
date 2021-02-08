@@ -15,11 +15,11 @@
     ]
     }`;
     const jsObject = JSON.parse(jsonString);
-    const output = document.createElement('div');
-    output.setAttribute('id', 'task2');
-    output.innerHTML = '<h3>task 2</h3>';
-    output.innerHTML += '<p>' + JSON.stringify(jsObject, null, 4); + '</p>';
+    const task = document.createElement('div');
+    task.setAttribute('id', 'task2');
+    task.innerHTML = '<h3>task 2</h3>';
+    task.innerHTML += '<p>' + JSON.stringify(jsObject, null, 4); + '</p>';
     console.log('Task 2:');
     console.log(jsObject);
-    document.getElementById('main').appendChild(output);
+    document.getElementById('main').appendChild(task);
 })();

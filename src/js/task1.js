@@ -33,11 +33,11 @@
         });
     }
     const result = { list: list };
-    const output = document.createElement('div');
-    output.setAttribute('id', 'task1');
-    output.innerHTML = '<h3>task 1</h3>';
-    output.innerHTML += '<p>' + JSON.stringify(result, null, 4); + '</p>';
+    const task = document.createElement('div');
+    task.setAttribute('id', 'task1');
+    task.innerHTML = '<h3>task 1</h3>';
+    task.innerHTML += '<p>' + JSON.stringify(result, null, 4); + '</p>';
     console.log('Task 1:');
     console.log(result);
-    document.getElementById('main').appendChild(output);
+    document.getElementById('main').appendChild(task);
 })();
