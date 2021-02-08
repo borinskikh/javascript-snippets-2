@@ -8,7 +8,8 @@
     function getTask() {
         const output = document.createElement('div');
         output.setAttribute('id', 'task4');
-        output.innerHTML = '<h3>task 4</h3>';
+        output.setAttribute('class', 'task');
+        output.innerHTML = '<h3 class="text">task 4</h3>';
         const form = document.createElement('form');
         form.setAttribute('id', 'task4-form');
         form.setAttribute('class', 'form');
@@ -20,6 +21,7 @@
         const label1 = document.createElement('label');
         label1.innerHTML = 'Enter a number between 100 and 300<br>';
         label1.setAttribute('for', 'task4-input1');
+        label1.setAttribute('class', 'text');
         field1.appendChild(label1);
         field1.appendChild(input1);
         const field2 = document.createElement('div');
@@ -28,12 +30,13 @@
         input2.setAttribute('type', 'text');
         input2.setAttribute('id', 'task4-input2');
         field1.appendChild(input2);
-        const button = document.createElement('input');
-        button.setAttribute('type', 'button');
-        button.setAttribute('value', 'Submit');
+        const button = document.createElement('button');
+        button.innerHTML = 'Submit';
+        button.setAttribute('class', 'btn  btn-dark');
         button.setAttribute('id', 'task4-button');
         const imageWrapper = document.createElement('div');
         imageWrapper.setAttribute('id', 'task4-image');
+        imageWrapper.setAttribute('style', 'max-width: 300px; max-height: 300px;');
         output.appendChild(form);
         output.appendChild(imageWrapper);
         form.appendChild(field1);
@@ -94,6 +97,7 @@
     function showMessage(message) {
         clearChildren(document.getElementById('task4-image'));
         const text = document.createElement('p');
+        text.setAttribute('class', 'text');
         text.appendChild(document.createTextNode(message));
         document.getElementById('task4-image').appendChild(text);
     }

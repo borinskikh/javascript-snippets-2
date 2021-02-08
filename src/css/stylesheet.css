@@ -1,12 +1,15 @@
-.card {
+.task {
+    background-color: black;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.col {
     padding: 10px;
+    background-color: black;
 }
 
-.form, .cards {
-    display: flex; 
-    flex-flow: row wrap;
-}
-
-.input {
-    width: 100%;
+.btn:hover {
+    background-color: slategrey;
 }

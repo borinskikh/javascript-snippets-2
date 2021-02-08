@@ -17,8 +17,9 @@
     const jsObject = JSON.parse(jsonString);
     const task = document.createElement('div');
     task.setAttribute('id', 'task2');
-    task.innerHTML = '<h3>task 2</h3>';
-    task.innerHTML += '<p>' + JSON.stringify(jsObject, null, 4); + '</p>';
+    task.setAttribute('class', 'task');
+    task.innerHTML = '<h3 class="text">task 2</h3>';
+    task.innerHTML += '<p class="text">' + JSON.stringify(jsObject, null, 4); + '</p>';
     console.log('Task 2:');
     console.log(jsObject);
     document.getElementById('main').appendChild(task);

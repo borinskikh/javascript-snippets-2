@@ -9,38 +9,45 @@
     }
 
     function getTask() {
-        const output = document.createElement('div');
-        output.setAttribute('id', 'task3');
-        output.innerHTML = '<h3>task 3</h3>';
+        const task = document.createElement('div');
+        task.setAttribute('id', 'task3');
+        task.setAttribute('class', 'task row');
+        const inputColumn = document.createElement('div');
+        inputColumn.setAttribute('id', 'task3-inputColumn');
+        inputColumn.setAttribute('class', 'col');
+        inputColumn.innerHTML = '<h3 class="text">task 3</h3>';
         const form = document.createElement('form');
         form.setAttribute('id', 'task3-form');
-        form.setAttribute('class', 'form');
         const field = document.createElement('div');
         field.setAttribute('id', 'task3-field');
+        field.setAttribute('class', 'form-group mr-sm-2 mb-2');
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('id', 'task3-input');
         input.setAttribute('class', 'input');
+        input.setAttribute('placeholder', ' Enter number');
         const label = document.createElement('label');
-        label.innerHTML = 'Enter a number between 1 and 10<br>';
+        label.setAttribute('class', 'text');
+        label.innerHTML = 'Enter a number between 1 and 10';
         label.setAttribute('for', 'task3-input');
         field.appendChild(label);
         field.appendChild(input);
-        const button = document.createElement('input');
-        button.setAttribute('type', 'button');
-        button.setAttribute('value', 'Submit');
+        const button = document.createElement('button');
+        button.innerHTML = 'Submit';
+        button.setAttribute('class', 'btn  btn-dark');
         button.setAttribute('id', 'task3-button');
-        const cards = document.createElement('div');
-        cards.setAttribute('id', 'task3-cards');
-        cards.setAttribute('class', 'cards');
-        form.appendChild(field);
-        form.appendChild(button);
-        output.appendChild(form);
-        output.appendChild(cards);
         button.addEventListener('click',
             () => { submit(); }
         );
-        return output;
+        const cards = document.createElement('div');
+        cards.setAttribute('id', 'task3-cards');
+        cards.setAttribute('class', 'col row');
+
+        task.appendChild(inputColumn);
+        task.appendChild(cards);
+        inputColumn.appendChild(field);
+        inputColumn.appendChild(button);
+        return task;
     }
 
     function submit() {
@@ -76,16 +83,15 @@
     function displayResults(json) {
         clearChildren(document.getElementById('task3-cards'));
         const cards = document.getElementById('task3-cards');
-        cards.style = 'display: flex; flex-flow: row wrap;';
         json.forEach((item) => {
             const card = document.createElement('div');
             card.style.padding = '10px';
-            card.setAttribute('class', 'card');
+            card.setAttribute('class', 'col');
             const image = document.createElement('img');
             image.setAttribute('src', item.download_url);
             image.style = 'max-width: 100px; max-height: 100px;';
             const text = document.createElement('p');
-            text.setAttribute('class', 'card-text');
+            text.setAttribute('class', 'text');
             text.innerHTML = item.author;
             card.appendChild(image);
             card.appendChild(text);
@@ -106,6 +112,7 @@
 
     function showMessage(message) {
         const text = document.createElement('p');
+        text.setAttribute('class', 'text');
         text.appendChild(document.createTextNode(message));
         document.getElementById('task3-cards').appendChild(text);
     }

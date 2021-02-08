@@ -12,13 +12,15 @@
     function getTask5() {
         const output = document.createElement('div');
         output.setAttribute('id', 'task5');
-        output.innerHTML = '<h3>task 5</h3>';
+        output.setAttribute('class', 'task');
+        output.innerHTML = '<h3 class="text">task 5</h3>';
         const form = document.createElement('form');
         form.setAttribute('id', 'task5-form');
         form.setAttribute('class', 'form');
         const field1 = document.createElement('div');
         field1.setAttribute('id', 'task5-field1');
         const label1 = document.createElement('label');
+        label1.setAttribute('class', 'text');
         label1.innerHTML = 'номер страницы<br>';
         label1.setAttribute('for', 'task5-input1');
         const input1 = document.createElement('input');
@@ -29,6 +31,7 @@
         const field2 = document.createElement('div');
         field2.setAttribute('id', 'task5-field2');
         const label2 = document.createElement('label');
+        label2.setAttribute('class', 'text');
         label2.innerHTML = 'лимит<br>';
         label2.setAttribute('for', 'task5-input2');
         const input2 = document.createElement('input');
@@ -36,13 +39,13 @@
         input2.setAttribute('id', 'task5-input2');
         field2.appendChild(label2);
         field2.appendChild(input2);
-        const button = document.createElement('input');
-        button.setAttribute('type', 'button');
-        button.setAttribute('value', 'запрос');
+        const button = document.createElement('button');
+        button.innerHTML = 'запрос';
+        button.setAttribute('class', 'btn  btn-dark');
         button.setAttribute('id', 'task5-button');
         const cards = document.createElement('div');
         cards.setAttribute('id', 'task5-cards');
-        cards.setAttribute('class', 'cards');
+        cards.setAttribute('class', 'row');
         output.appendChild(form);
         output.appendChild(cards);
         form.appendChild(field1);
@@ -102,7 +105,7 @@
         json.forEach((item) => {
             const card = document.createElement('div');
             card.style.padding = '10px';
-            card.setAttribute('class', 'card');
+            card.setAttribute('class', 'col');
             const image = document.createElement('img');
             image.setAttribute('src', item.download_url);
             image.style = 'max-width: 100px; max-height: 100px;';
