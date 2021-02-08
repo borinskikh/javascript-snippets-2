@@ -1,5 +1,11 @@
 document.getElementById('main').appendChild(getTask3());
-submit3();
+if (window.localStorage.getItem('task3-cards')) {
+    document.getElementById('task3-cards').innerHTML = window.localStorage.getItem('task3-cards');
+    console.log('Task 3: local storage was used');
+} else {
+    document.getElementById('task3-input').value = '3';;
+    submit3();
+}
 
 function getTask3() {
     const output = document.createElement('div');
@@ -7,24 +13,29 @@ function getTask3() {
     output.innerHTML = '<h3>task 3</h3>';
     const form = document.createElement('form');
     form.setAttribute('id', 'task3-form');
+    form.setAttribute('class', 'form');
+    const field = document.createElement('div');
+    field.setAttribute('id', 'task3-field');
     const input = document.createElement('input');
     input.setAttribute('type', 'text');
     input.setAttribute('id', 'task3-input');
-    input.value = '3';
+    input.setAttribute('class', 'input');
     const label = document.createElement('label');
     label.innerHTML = 'Enter a number between 1 and 10<br>';
     label.setAttribute('for', 'task3-input');
+    field.appendChild(label);
+    field.appendChild(input);
     const button = document.createElement('input');
     button.setAttribute('type', 'button');
     button.setAttribute('value', 'Submit');
     button.setAttribute('id', 'task3-button');
     const cards = document.createElement('div');
     cards.setAttribute('id', 'task3-cards');
+    cards.setAttribute('class', 'cards');
+    form.appendChild(field);
+    form.appendChild(button);
     output.appendChild(form);
     output.appendChild(cards);
-    form.appendChild(label);
-    form.appendChild(input);
-    form.appendChild(button);
     button.addEventListener('click',
         () => { submit3(); }
     );
@@ -79,6 +90,7 @@ function displayResults3(json) {
         card.appendChild(text);
         cards.appendChild(card);
     });
+    window.localStorage.setItem("task3-cards", document.getElementById('task3-cards').innerHTML);
 }
 
 function clearChildren(parent) {

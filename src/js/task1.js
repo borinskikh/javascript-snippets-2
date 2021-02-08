@@ -1,4 +1,4 @@
-console.log('Task 1');
+console.log('Task 1:');
 document.getElementById('main').appendChild(getTask1());
 
 function getTask1() {

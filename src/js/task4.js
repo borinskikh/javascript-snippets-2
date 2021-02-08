@@ -1,5 +1,8 @@
 document.getElementById('main').appendChild(getTask4());
+document.getElementById('task4-input1').value = '100';
+document.getElementById('task4-input2').value = '100';
 submit4();
+
 
 function getTask4() {
     const output = document.createElement('div');
@@ -7,17 +10,23 @@ function getTask4() {
     output.innerHTML = '<h3>task 4</h3>';
     const form = document.createElement('form');
     form.setAttribute('id', 'task4-form');
+    form.setAttribute('class', 'form');
+    const field1 = document.createElement('div');
+    field1.setAttribute('id', 'task4-field1');
     const input1 = document.createElement('input');
     input1.setAttribute('type', 'text');
     input1.setAttribute('id', 'task4-input1');
-    input1.value = '100';
+    const label1 = document.createElement('label');
+    label1.innerHTML = 'Enter a number between 100 and 300<br>';
+    label1.setAttribute('for', 'task4-input1');
+    field1.appendChild(label1);
+    field1.appendChild(input1);
+    const field2 = document.createElement('div');
+    field2.setAttribute('id', 'task4-field2');
     const input2 = document.createElement('input');
     input2.setAttribute('type', 'text');
     input2.setAttribute('id', 'task4-input2');
-    input2.value = '100';
-    const label = document.createElement('label');
-    label.innerHTML = 'Enter a number between 100 and 300<br>';
-    label.setAttribute('for', 'task4-input1');
+    field1.appendChild(input2);
     const button = document.createElement('input');
     button.setAttribute('type', 'button');
     button.setAttribute('value', 'Submit');
@@ -26,9 +35,8 @@ function getTask4() {
     imageWrapper.setAttribute('id', 'task4-image');
     output.appendChild(form);
     output.appendChild(imageWrapper);
-    form.appendChild(label);
-    form.appendChild(input1);
-    form.appendChild(input2);
+    form.appendChild(field1);
+    form.appendChild(field2);
     form.appendChild(button);
     button.addEventListener('click',
         () => { submit4(); }
@@ -53,7 +61,7 @@ function submit4() {
 function request4(url) {
     fetch(url)
         .then(response => {
-            console.log('Task 4');
+            console.log('Task 4:');
             console.log(response);
             return response.blob();
         }).then(image => {
