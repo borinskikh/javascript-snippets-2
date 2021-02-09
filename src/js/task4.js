@@ -2,7 +2,7 @@
     document.getElementById('main').appendChild(getTask());
     document.getElementById('task4-input1').value = '100';
     document.getElementById('task4-input2').value = '100';
-    submit();
+    submit4();
 
 
     function getTask() {
@@ -18,6 +18,7 @@
         const input1 = document.createElement('input');
         input1.setAttribute('type', 'text');
         input1.setAttribute('id', 'task4-input1');
+        input1.setAttribute('class', 'input');
         const label1 = document.createElement('label');
         label1.innerHTML = 'Enter a number between 100 and 300<br>';
         label1.setAttribute('for', 'task4-input1');
@@ -29,6 +30,7 @@
         const input2 = document.createElement('input');
         input2.setAttribute('type', 'text');
         input2.setAttribute('id', 'task4-input2');
+        input2.setAttribute('class', 'input');
         field1.appendChild(input2);
         const button = document.createElement('button');
         button.innerHTML = 'Submit';
@@ -43,12 +45,12 @@
         form.appendChild(field2);
         form.appendChild(button);
         button.addEventListener('click',
-            () => { submit(); }
+            () => { submit4(); }
         );
         return output;
     }
 
-    function submit() {
+    function submit4() {
         const number1 = parseInt(document.getElementById('task4-input1').value);
         const number2 = parseInt(document.getElementById('task4-input2').value);
         clearInput();
