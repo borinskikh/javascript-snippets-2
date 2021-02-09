@@ -2,13 +2,13 @@
     document.getElementById('main').appendChild(getTask());
     document.getElementById('task4-input1').value = '100';
     document.getElementById('task4-input2').value = '100';
-    submit4();
+    //submit4();
 
 
     function getTask() {
         const output = document.createElement('div');
         output.setAttribute('id', 'task4');
-        output.setAttribute('class', 'task');
+        output.setAttribute('class', 'task bg-dark');
         output.innerHTML = '<h3 class="text">task 4</h3>';
         const form = document.createElement('form');
         form.setAttribute('id', 'task4-form');
@@ -32,7 +32,7 @@
         input2.setAttribute('id', 'task4-input2');
         input2.setAttribute('class', 'input');
         field1.appendChild(input2);
-        const button = document.createElement('button');
+        const button = document.createElement('div');
         button.innerHTML = 'Submit';
         button.setAttribute('class', 'btn  btn-dark');
         button.setAttribute('id', 'task4-button');

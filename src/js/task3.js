@@ -1,5 +1,6 @@
 document.getElementById('main').appendChild(getTask());
-
+document.getElementById('task3-input').value = '10';;
+submit3();
 /*if (window.localStorage.getItem('task3-cards')) {
     document.getElementById('task3-cards').innerHTML = window.localStorage.getItem('task3-cards');
     console.log('Task 3: local storage was used');
@@ -11,12 +12,12 @@ document.getElementById('main').appendChild(getTask());
 function getTask() {
     const task = document.createElement('div');
     task.setAttribute('id', 'task3');
-    task.setAttribute('class', 'task d-flex flex-column');
+    task.setAttribute('class', 'task bg-dark d-flex flex-column');
     task.innerHTML = '<h3>task 3</h3>';
     const content = document.createElement('div');
     content.setAttribute('id', 'task3-content');
     content.setAttribute('class', 'd-flex flex-fill flex-row');
-    const form = document.createElement('form');
+    const form = document.createElement('div');
     form.setAttribute('id', 'task3-form');
     form.setAttribute('class', 'm-5 d-flex flex-column');
     form.setAttribute('style', 'width: 20%;');
@@ -26,7 +27,7 @@ function getTask() {
     const input = document.createElement('input');
     input.setAttribute('type', 'cardTitle');
     input.setAttribute('id', 'task3-input');
-    input.setAttribute('class', 'input');
+    input.setAttribute('class', 'input border-secondary');
     input.setAttribute('placeholder', ' Enter number');
     const label = document.createElement('label');
     label.setAttribute('class', 'cardTitle');
@@ -34,10 +35,9 @@ function getTask() {
     label.setAttribute('for', 'task3-input');
     const button = document.createElement('button');
     button.innerHTML = 'Submit';
-    button.setAttribute('class', 'm-3 btn btn-dark');
+    button.setAttribute('class', 'm-3 btn btn-secondary');
     button.setAttribute('id', 'task3-button');
-    button.onclick = () => submit3();
-    //button.addEventListener('click', event => submit3());
+    button.addEventListener('click', function () { submit3(); });
     const cards = document.createElement('div');
     cards.setAttribute('id', 'task3-cards');
     cards.setAttribute('class', 'd-flex flex-row flex-wrap');
@@ -60,7 +60,7 @@ function submit3() {
         showMessage('loading');
         request('https://picsum.photos/v2/list/?limit=' + number);
     } else {
-        clearChildren(document.getElementById('task3-cards'));
+        //clearChildren(document.getElementById('task3-cards'));
         showMessage('число вне диапазона от 1 до 10');
     }
 }
@@ -88,7 +88,7 @@ function displayResults(json) {
     const cards = document.getElementById('task3-cards');
     json.forEach((item) => {
         const card = document.createElement('div');
-        card.setAttribute('class', 'm-2 card bg-dark');
+        card.setAttribute('class', 'm-2 card bg-secondary');
         const image = document.createElement('img');
         image.setAttribute('src', item.download_url);
         image.setAttribute('class', 'card-img-top');

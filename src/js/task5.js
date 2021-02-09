@@ -1,18 +1,18 @@
 (() => {
     document.getElementById('main').appendChild(getTask5());
-    if (window.localStorage.getItem('task5-cards')) {
+    /*if (window.localStorage.getItem('task5-cards')) {
         console.log('Task 5: local storage was used');
         document.getElementById('task5-cards').innerHTML = window.localStorage.getItem('task5-cards');
     } else {
         document.getElementById('task5-input1').value = '5';
         document.getElementById('task5-input2').value = '7';
-        submit5();
-    }
+        //submit5();
+    }*/
 
     function getTask5() {
         const output = document.createElement('div');
         output.setAttribute('id', 'task5');
-        output.setAttribute('class', 'task');
+        output.setAttribute('class', 'task bg-dark');
         output.innerHTML = '<h3 class="text">task 5</h3>';
         const form = document.createElement('form');
         form.setAttribute('id', 'task5-form');
