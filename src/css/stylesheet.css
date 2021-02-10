@@ -4,11 +4,6 @@
     margin: 20px;
 }
 
-.input {
-    background-color: black;
-    color: white;
-}
-
 .btn:hover {
     background-color: slategrey;
 }
