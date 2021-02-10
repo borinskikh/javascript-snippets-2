@@ -35,8 +35,9 @@
     const result = { list: list };
     const task = document.createElement('div');
     task.setAttribute('id', 'task1');
-    task.innerHTML = '<h3>task 1</h3>';
-    task.innerHTML += '<p>' + JSON.stringify(result, null, 4); + '</p>';
+    task.setAttribute('class', 'task bg-dark');
+    task.innerHTML = '<h3 class="text">task 1</h3>';
+    task.innerHTML += '<p class="text">' + JSON.stringify(result, null, 4); + '</p>';
     console.log('Task 1:');
     console.log(result);
     document.getElementById('main').appendChild(task);

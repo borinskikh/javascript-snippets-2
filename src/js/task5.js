@@ -1,65 +1,77 @@
 (() => {
-    document.getElementById('main').appendChild(getTask5());
+    document.getElementById('main').appendChild(getTask());
+
     if (window.localStorage.getItem('task5-cards')) {
         console.log('Task 5: local storage was used');
         document.getElementById('task5-cards').innerHTML = window.localStorage.getItem('task5-cards');
     } else {
         document.getElementById('task5-input1').value = '5';
         document.getElementById('task5-input2').value = '7';
-        submit5();
     }
 
-    function getTask5() {
-        const output = document.createElement('div');
-        output.setAttribute('id', 'task5');
-        output.innerHTML = '<h3>task 5</h3>';
-        const form = document.createElement('form');
+    function getTask() {
+        const task = document.createElement('div');
+        task.setAttribute('id', 'task5');
+        task.setAttribute('class', 'task bg-dark d-flex flex-column');
+        task.innerHTML = '<h3>task 5</h3>';
+        const content = document.createElement('div');
+        content.setAttribute('id', 'task3-content');
+        content.setAttribute('class', 'm-3 d-flex flex-column flex-lg-row flex-fill');
+        const form = document.createElement('div');
         form.setAttribute('id', 'task5-form');
-        form.setAttribute('class', 'form');
+        form.setAttribute('class', 'm-5 d-flex flex-column');
         const field1 = document.createElement('div');
         field1.setAttribute('id', 'task5-field1');
+        field1.setAttribute('class', 'd-flex flex-column');
         const label1 = document.createElement('label');
-        label1.innerHTML = 'номер страницы<br>';
+        label1.innerHTML = 'номер страницы';
         label1.setAttribute('for', 'task5-input1');
         const input1 = document.createElement('input');
         input1.setAttribute('type', 'text');
         input1.setAttribute('id', 'task5-input1');
-        field1.appendChild(label1);
-        field1.appendChild(input1);
+        input1.setAttribute('class', 'bg-dark text-light border-secondary');
+        input1.setAttribute('placeholder', ' Enter a number');
         const field2 = document.createElement('div');
         field2.setAttribute('id', 'task5-field2');
+        field2.setAttribute('class', 'd-flex flex-column');
         const label2 = document.createElement('label');
         label2.innerHTML = 'лимит<br>';
         label2.setAttribute('for', 'task5-input2');
         const input2 = document.createElement('input');
         input2.setAttribute('type', 'text');
         input2.setAttribute('id', 'task5-input2');
-        field2.appendChild(label2);
-        field2.appendChild(input2);
-        const button = document.createElement('input');
-        button.setAttribute('type', 'button');
-        button.setAttribute('value', 'запрос');
+        input2.setAttribute('class', 'bg-dark text-light border-secondary');
+        input2.setAttribute('placeholder', ' Enter a number');
+        const button = document.createElement('button');
+        button.innerHTML = 'запрос';
         button.setAttribute('id', 'task5-button');
+        button.setAttribute('class', 'm-3 btn btn-secondary');
         const cards = document.createElement('div');
         cards.setAttribute('id', 'task5-cards');
-        cards.setAttribute('class', 'cards');
-        output.appendChild(form);
-        output.appendChild(cards);
+        cards.setAttribute('class', 'd-flex flex-row flex-wrap');
+
+        task.appendChild(content);
+        content.appendChild(form);
+        content.appendChild(cards);
         form.appendChild(field1);
         form.appendChild(field2);
+        field1.appendChild(label1);
+        field1.appendChild(input1);
+        field2.appendChild(label2);
+        field2.appendChild(input2);
         form.appendChild(button);
         button.addEventListener('click',
-            () => { submit5(); }
+            () => { submit(); }
         );
-        return output;
+        return task;
     }
 
-    function submit5() {
+    function submit() {
         const input1 = parseInt(document.getElementById('task5-input1').value);
         const input2 = parseInt(document.getElementById('task5-input2').value);
-        clearInput5();
         let input1IsNotSuitable;
         let input2IsNotSuitable;
+        clearInput();
         clearChildren(document.getElementById('task5-cards'));
         if (isNaN(input1) || input1 < 0 || input1 > 10) {
             input1IsNotSuitable = true;
@@ -86,7 +98,7 @@
                 console.log('status: ', xhr.status);
             } else {
                 const result = JSON.parse(xhr.response);
-                console.log('Task 5');
+                console.log('Task 5:');
                 console.log(result);
                 displayResults5(result);
             }
@@ -101,16 +113,22 @@
         const cards = document.getElementById('task5-cards');
         json.forEach((item) => {
             const card = document.createElement('div');
-            card.style.padding = '10px';
-            card.setAttribute('class', 'card');
+            card.setAttribute('class', 'm-2 card bg-secondary');
             const image = document.createElement('img');
             image.setAttribute('src', item.download_url);
-            image.style = 'max-width: 100px; max-height: 100px;';
-            const text = document.createElement('p');
-            text.innerHTML = item.author;
+            image.setAttribute('class', 'card-img-top pt-2');
+            image.setAttribute('style', 'object-fit: scale-down; height: 100px; width: auto;');
+            const cardBody = document.createElement('div');
+            cardBody.setAttribute('class', 'card-body');
+            const cardTitle = document.createElement('p');
+            cardTitle.setAttribute('class', 'card-title');
+            cardTitle.innerHTML = item.author;
+
             card.appendChild(image);
-            card.appendChild(text);
+            card.appendChild(cardBody);
+            cardBody.appendChild(cardTitle);
             cards.appendChild(card);
+
         });
         window.localStorage.setItem("task5-cards", document.getElementById('task5-cards').innerHTML);
     }
@@ -121,7 +139,7 @@
         }
     }
 
-    function clearInput5() {
+    function clearInput() {
         document.getElementById('task5-input1').value = '';
         document.getElementById('task5-input2').value = '';
     }

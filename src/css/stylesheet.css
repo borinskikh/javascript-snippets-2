@@ -1,12 +1,9 @@
-.card {
-    padding: 10px;
+.task {
+    border-radius: 30px;
+    padding: 20px;
+    margin: 20px;
 }
 
-.form, .cards {
-    display: flex; 
-    flex-flow: row wrap;
-}
-
-.input {
-    width: 100%;
+.btn:hover {
+    background-color: slategrey;
 }
