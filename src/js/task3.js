@@ -1,12 +1,10 @@
 (() => {
     document.getElementById('main').appendChild(getTask());
     if (window.localStorage.getItem('task3-cards')) {
-        //document.getElementById('task3-cards').innerHTML = window.localStorage.getItem('task3-cards');
-        document.getElementById('task3-input').value = '3';;
-        submit();
+        document.getElementById('task3-cards').innerHTML = window.localStorage.getItem('task3-cards');
         console.log('Task 3: local storage was used');
     } else {
-        document.getElementById('task3-input').value = '3';;
+        document.getElementById('task3-input').value = '10';;
         submit();
     }
 

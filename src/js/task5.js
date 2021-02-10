@@ -16,7 +16,7 @@
         task.innerHTML = '<h3>task 5</h3>';
         const content = document.createElement('div');
         content.setAttribute('id', 'task3-content');
-        content.setAttribute('class', 'm-3 d-flex flex-column flex-lg-row justify-content-around  flex-fill');
+        content.setAttribute('class', 'm-3 d-flex flex-column flex-lg-row flex-fill');
         const form = document.createElement('div');
         form.setAttribute('id', 'task5-form');
         form.setAttribute('class', 'm-5 d-flex flex-column');
