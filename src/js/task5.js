@@ -10,6 +10,7 @@
     }
 
     function getTask() {
+        // returns the task4 node
         const task = document.createElement('div');
         task.setAttribute('id', 'task5');
         task.setAttribute('class', 'task bg-dark d-flex flex-column');
@@ -67,6 +68,8 @@
     }
 
     function submit() {
+        //when the task5-button is pressed, a request using a number from the user input will be sent
+        //if the input is not valid shows error message
         const input1 = parseInt(document.getElementById('task5-input1').value);
         const input2 = parseInt(document.getElementById('task5-input2').value);
         let input1IsNotSuitable;
@@ -91,6 +94,7 @@
     }
 
     function request5(url) {
+        //sending actual request
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.onload = function () {
@@ -109,6 +113,7 @@
         xhr.send();
     };
     function displayResults5(json) {
+        //adds the response to the DOM and saves it to the local storage
         clearChildren(document.getElementById('task5-cards'));
         const cards = document.getElementById('task5-cards');
         json.forEach((item) => {

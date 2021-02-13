@@ -1,5 +1,6 @@
 (() => {
     document.getElementById('main').appendChild(getTask());
+
     if (window.localStorage.getItem('task3-cards')) {
         document.getElementById('task3-cards').innerHTML = window.localStorage.getItem('task3-cards');
         console.log('Task 3: local storage was used');
@@ -9,6 +10,7 @@
     }
 
     function getTask() {
+        // returns the task3 node
         const task = document.createElement('div');
         task.setAttribute('id', 'task3');
         task.setAttribute('class', 'task bg-dark d-flex flex-column');
@@ -50,6 +52,8 @@
     }
 
     function submit() {
+        //when the task3-button is pressed, a request using a number from the user input will be sent
+        //if the input is not valid shows error message
         const number = parseInt(document.getElementById('task3-input').value);
         clearInput();
         if (!isNaN(number) && number < 11 && number > 0) {
@@ -62,6 +66,7 @@
     }
 
     function request(url) {
+        //sending actual request
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.onload = function () {
@@ -80,6 +85,7 @@
         xhr.send();
     };
     function displayResults(json) {
+        //adds the response to the DOM and saves it to the local storage
         clearChildren(document.getElementById('task3-cards'));
         const cards = document.getElementById('task3-cards');
         json.forEach((item) => {
@@ -104,6 +110,7 @@
     }
 
     function clearChildren(parent) {
+        //removes all children of a given parent element
         while (parent.lastChild) {
             parent.removeChild(parent.lastChild);
         }

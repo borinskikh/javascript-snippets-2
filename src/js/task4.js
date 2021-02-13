@@ -6,6 +6,7 @@
 
 
     function getTask() {
+        // returns the task4 node
         const task = document.createElement('div');
         task.setAttribute('id', 'task4');
         task.setAttribute('class', 'task bg-dark d-flex flex-column');
@@ -59,6 +60,8 @@
     }
 
     function submit() {
+        //when the task4-button is pressed, a request using a number from the user input will be sent
+        //if the input is not valid shows error message
         const number1 = parseInt(document.getElementById('task4-input1').value);
         const number2 = parseInt(document.getElementById('task4-input2').value);
         clearInput();
@@ -73,6 +76,7 @@
     }
 
     function request(url) {
+        //sending actual request
         fetch(url)
             .then(response => {
                 console.log('Task 4:');
@@ -85,6 +89,7 @@
     }
 
     function displayResults(imageUrl) {
+        //adds the response to the DOM
         clearChildren(document.getElementById('task4-image'));
         const card = document.getElementById('task4-image');
         card.setAttribute('class', 'm-2 card bg-dark');
@@ -97,6 +102,7 @@
     }
 
     function clearChildren(parent) {
+        //removes all children of a given parent element
         while (parent.lastChild) {
             parent.removeChild(parent.lastChild);
         }
