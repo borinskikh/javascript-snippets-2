@@ -76,10 +76,10 @@
         let input2IsNotSuitable;
         clearInput();
         clearChildren(document.getElementById('task5-cards'));
-        if (isNaN(input1) || input1 < 0 || input1 > 10) {
+        if (isNaN(input1) || input1 < 1 || input1 > 10) {
             input1IsNotSuitable = true;
         }
-        if (isNaN(input2) || input2 < 0 || input2 > 10) {
+        if (isNaN(input2) || input2 < 1 || input2 > 10) {
             input2IsNotSuitable = true;
         }
         if (input1IsNotSuitable && input2IsNotSuitable) {
